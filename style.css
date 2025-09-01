@@ -1,0 +1,365 @@
+:root{
+  --rosa:#f538c3;
+  --preto:#000;
+  --branco:#fff;
+  --radius:22px;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+
+html,body{height:100%; 
+          margin:0; 
+          font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+          overflow-x: hidden;
+        }
+
+.container{max-width:960px; 
+          margin:0 auto; 
+          min-height:100dvh; 
+          display:grid; 
+          place-items:center;}
+
+.card{width:100vw; 
+      height:100vh; 
+      border-radius:0; 
+      box-shadow:none; 
+      overflow:hidden; 
+      position:relative;}
+
+.screen{display:none; 
+        width:100vw; 
+        height:100vh; 
+        padding:28px; 
+        box-sizing:border-box;
+      }
+
+.screen.active{display:block; 
+              animation:fade .5s ease}
+
+@keyframes fade{from{opacity:0; 
+          transform:translateY(6px)} to{opacity:1; transform:none}}
+
+#tela1{
+  background: var(--rosa);
+  text-align: center;
+  color: var(--branco);
+  overflow: hidden;          /* <─ esconde rolagem */
+  -ms-overflow-style: none;  /* IE/Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+#tela1::-webkit-scrollbar{   /* Chrome/Safari/Opera */
+  display: none;
+}
+
+h1 {
+  font-family: 'Fonte2', sans-serif;
+  letter-spacing: 2px;
+  color:#0000008e;
+  font-size: 24px;        /* <-- diminui só o tamanho do h1 */
+  transform: translateY(40px); 
+  position: relative;
+  top: 40px;  
+}
+
+#tela1 p {
+  font-family: 'Fonte1', sans-serif; 
+  font-size: 70px;  /* mantém a base */
+  transform: scale(1.2);   /* Aumenta em 20% */
+  color: #000000;                    
+  letter-spacing: 1px;
+  position: relative;
+  line-height: 0.7;
+  top: 40px;             
+}
+
+#tela1 .imagem-central{
+                      width:200px; 
+                      height:200px; 
+                      margin:20px auto; 
+                      border-radius:var(--radius); 
+                      display:grid; 
+                      place-items:center; 
+                      overflow:hidden;}
+
+#tela1 .imagem-central img{width:100%; 
+                          height:100%; 
+                          object-fit:contain}
+
+.btn{cursor:pointer; 
+    display:inline-flex; 
+    align-items:center; 
+    justify-content:center; 
+    gap:10px; 
+    padding:14px 18px; 
+    border-radius:14px; 
+    border:none; 
+    font-weight:600; 
+    transition:transform .08s ease, box-shadow .2s ease;}
+
+.botaoPrincipal { position: relative; }
+.botao1{
+  width: 250px;
+  height: auto;
+  position: absolute;   
+  right: 43px;
+  bottom: -40px;         
+}
+
+#tela1 .subtexto{
+  color: #000000d7;
+  font-size: 14px;
+  font-family: 'Fonte2', sans-serif;
+  position: relative;
+  top: 400px;           
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#tela2{background: url('Fundo .jpg') no-repeat center/cover, var(--preto); 
+      color:var(--branco);
+      
+    }
+
+.panel {
+  background: rgba(0, 0, 0, 0.651);  
+  border-radius: 1px;
+  padding: 18px;
+  min-height: 93vh;   /* <-- ocupa 100% da tela */
+  position: relative;
+  z-index: 1;
+}
+
+.panel::before{
+  content:"";
+  position:absolute;
+  inset:-12px;                     /* tamanho da moldura externa */
+  background:url('bling.jpeg') center/cover no-repeat;
+  border-radius: 30px;             /* > que o do painel */
+  padding: 12px;                   /* ESPESSURA da moldura */
+  /* mostra só a borda (anel) */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;     /* Chrome/Safari */
+  mask-composite: exclude;         /* Firefox */
+  z-index:-1;
+}
+
+.panel h3{margin:0 0 10px; 
+          font-size:18px; 
+          color:var(--branco)}
+
+.big{
+      font-family: 'Fonte1', sans-serif; 
+      font-size: 60px;                  
+      color: #ffffff;                    
+      letter-spacing: 3px;
+      text-align: center;
+      line-height: 0.9;
+      margin-bottom: 8px; 
+    }
+
+.subtexto {
+  font-family: 'Fonte2', sans-serif;  
+  font-size: 20px;                    
+  color: #eeebeb;                    
+  text-align: center;               
+  margin-top: 6px;                    
+}
+
+.dia{
+  font-family: 'Fonte2', sans-serif; 
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 0;
+}
+
+.mes{
+  font-family: 'Fonte2', sans-serif; 
+  text-align: center;
+  margin-top: 2px;
+}
+
+.nomelugar{
+  font-family: 'Fonte2', sans-serif; 
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 0; 
+}
+
+.endereço{
+  font-family: 'Fonte2', sans-serif; 
+  text-align: center;
+  font-size: 12px; 
+  margin-top: 2px;
+}
+
+.apartir{
+  font-family: 'Fonte2', sans-serif; 
+  text-align: center;
+  font-size: 10px; 
+  margin-bottom: 0; 
+}
+
+.horas{
+  font-family: 'Fonte2', sans-serif; 
+  text-align: center;
+  font-size: 30px; 
+  margin-top: 2px;
+}
+
+.list{display:grid; 
+      gap:10px; 
+      margin:8px 0 0; 
+      padding:0; 
+      list-style:none}
+
+.linha1{
+  text-align: center;
+  margin-top: -5px;
+  margin-bottom: 25px;
+}
+.linha2{
+  text-align: center;
+  margin-top: -5px;
+  margin-bottom: 25px;
+}
+
+.centro {
+  text-align: center;
+  position: relative;
+  top: 10px;   /* estava 40px → diminui */
+}
+
+.botao2{
+  text-align: center;
+  font-family: 'Fonte2', sans-serif; 
+  font-size: 15px;
+  position: relative;
+  top: -10px;
+  left: 10px;
+}
+
+.botoes-container {
+    position: absolute;   /* agora pertence ao .panel */
+    bottom: 85px;         /* distância do fundo do painel */
+    left: 53%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 25px;
+}
+
+.botao {
+  text-align: center;
+  font-family: 'Fonte2', sans-serif;
+  font-size: 10px;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  top: 50px;
+  left: -5px;
+}
+
+.botao-img {
+    width: 50px;
+    height: 50px;  
+    cursor: pointer;
+
+}
+
+.textos {
+  display: flex;
+  justify-content: center;
+  gap: 30px;              
+  margin-top: -75px;     
+}
+
+.textos p {
+  font-family: 'Fonte2', sans-serif;
+  font-size: 8px;
+  color: white;
+  text-align: center;
+  margin: 0;              
+}
+
+.txt1 {
+  position: relative;
+  left: -5px;            
+  line-height: 1.5;
+}
+
+.txt2 {
+  position: relative;
+  left: -3px; 
+  line-height: 1.5;            
+}
+
+.imagem1 { position: relative; }
+.imagem-alanis1{
+  width: 150px;
+  height: auto;
+  position: absolute;   
+  right: -60px;
+  bottom: 190px;
+}
+
+.imagem2 { position: relative; }
+.imagem-alanis2{
+  width: 150px;
+  height: auto;
+  position: absolute;   
+  right: 220px;
+  bottom: -10px;
+}
+
+.imagem-envelope{position: relative;}
+.envelope{
+  width: 360px;          /* ajuste o tamanho que quiser */
+  max-width: 90vw;       /* nunca passa da largura da tela */
+  height: auto;
+  position: absolute;    
+  left: 50%;             /* centraliza horizontalmente */
+  transform: translateX(-50%);
+  bottom: -200px; 
+}
+
+
+
+.panel .imagem-central{width:100%; 
+                      max-width:300px; 
+                      height:200px; 
+                      margin:20px auto; 
+                      border-radius:var(--radius); 
+                      display:grid; 
+                      place-items:center; 
+                      overflow:hidden;}
+
+.panel .imagem-central img{width:100%; 
+                          height:100%; 
+                          object-fit:contain}
+
+.topbar{position:absolute; 
+        inset:0 auto auto 0; 
+        padding:12px 14px;}
+
+.topbar .back{font-size:14px}
+
+@font-face {
+  font-family: 'fonte1';  
+  src: url('edwardianscriptitc.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'fonte2';
+  src: url('fonnts.com-Trajan-Pro-Extra-Light.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'fonte3';
+  src: url('futuralight.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
